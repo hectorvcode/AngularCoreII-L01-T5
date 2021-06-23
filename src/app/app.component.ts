@@ -19,6 +19,13 @@ export class AppComponent {
     //this.router.navigate(['countries'], { queryParams: { name: 'colombia' } }) 
     this.router.navigate(['countries'], { queryParams: {city: 'medellin', currency: 'COP' } })
   }
+
+  onClick(action: boolean) {
+    sessionStorage.setItem('authenticated', action ? "true" : "false");
+    if(action === false){
+      this.router.navigate(['/'])
+    }
+  }
 }
 
 

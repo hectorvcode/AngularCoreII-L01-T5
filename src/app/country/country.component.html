@@ -1,1 +1,39 @@
-<p>country works!</p>
+<h2 class="m-6 text-3xl text-red-800">Formulario template-driven</h2>
+
+<div class="w-full max-w-xs">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" name="newCountry" #myCountryForm="ngForm" ngSubmit="saveCountry()">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+          Name
+        </label>
+        <input class="name" id="name" type="text" placeholder="name" [(ngModel)] = "newCountry.name" name="name">
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+          Capital
+        </label>
+        <input class="capital" id="capital" type="text" placeholder="capital" [(ngModel)] = "newCountry.capital" name="capital">
+        
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="mybutton" type="submit" (click) = "saveCountry()">
+          Submit
+        </button>
+        
+      </div>
+    </form>
+    <p class="text-center text-gray-500 text-xs">
+      &copy;2020 Acme Corp. All rights reserved.
+    </p>
+  </div>
+
+<!--<p>country works well!</p>-->
+
+<!--<p>{{ countries | json }}</p>-->
+
+<ul>
+    <li *ngFor = "let country of countries">
+        {{ country.name }}
+    </li>
+</ul>
+

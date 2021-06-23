@@ -1,5 +1,20 @@
+<div class="banner">
+    Hello Angular-Tailwind
+</div>
+
+
+
 <a routerLink="/country"> Ir al componente de paises </a>
+
 <br>
-<button (click)="queryParams()">Detalle país con Query Params </button>
+
+<button class="button" (click)="queryParams()">Detalle país con Query Params </button>
+
+<br>
+
+<button class="button" (click) = "onClick(true)">Autenticarse</button>
+<button class="button" (click) = "onClick(false)">Cerrar Sesión</button>
 
 <router-outlet></router-outlet>
+
+<app-country></app-country>
