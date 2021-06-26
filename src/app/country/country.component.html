@@ -3,23 +3,27 @@
 <div class="w-full max-w-xs">
     <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" name="newCountry" #myCountryForm="ngForm" ngSubmit="saveCountry()">
       <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
           Name
         </label>
-        <input class="name" id="name" type="text" placeholder="name" [(ngModel)] = "newCountry.name" name="name">
+        <input class="name" id="name" type="text" placeholder="name" [(ngModel)]="newCountry.name" name="name" #name="ngModel">
+        <p *ngIf="!name.dirty">
+          <small>El nombre es requerido</small>
+        </p>
       </div>
       <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
+        <label class="block text-gray-700 text-sm font-bold mb-2" for="capital">
           Capital
         </label>
-        <input class="capital" id="capital" type="text" placeholder="capital" [(ngModel)] = "newCountry.capital" name="capital">
-        
+        <input class="capital" id="capital" type="text" placeholder="capital" [(ngModel)]="newCountry.capital" name="capital" required #capital="ngModel">
+        <p *ngIf="!capital.valid">
+          <small>Campo requerido</small>
+        </p>
       </div>
       <div class="flex items-center justify-between">
-        <button class="mybutton" type="submit" (click) = "saveCountry()">
+        <button class="mybutton" type="submit" [disabled]="myCountryForm.form.invalid" (click)="saveCountry()">
           Submit
         </button>
-        
       </div>
     </form>
     <p class="text-center text-gray-500 text-xs">
@@ -36,4 +40,3 @@
         {{ country.name }}
     </li>
 </ul>
-

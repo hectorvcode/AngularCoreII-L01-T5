@@ -22,7 +22,9 @@ export class CountryComponent implements OnInit {
   constructor(private CountrySrv: CountryServiceService) { }
 
   ngOnInit() {
-    this.CountrySrv.getAllCities().subscribe(data => this.countries = data);
+    this.CountrySrv.getAllCities().subscribe(data => this.countries = data.slice(0,5));
+    this.newCountry.name= "";
+    this.newCountry.capital="";
   }
 
   //myFunction() {
@@ -31,7 +33,7 @@ export class CountryComponent implements OnInit {
 
   public saveCountry():void{
     
-    this.newCountry.capital = this.newCountry.capital + 'City'
+    this.newCountry.capital = this.newCountry.capital + ' City'
     this.countries.push(this.newCountry);
     
   }
